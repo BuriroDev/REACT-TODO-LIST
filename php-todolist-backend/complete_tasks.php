@@ -16,10 +16,3 @@ while($row = $result->fetch_assoc()){
 
 echo json_encode($users);
 
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-    $data = json_decode(file_get_contents("php://input", true));
-    $id = $data["c_id"];
-
-    $sql = "UPDATE tasks SET status = 'Completed' WHERE id = $id";
-    mysqli_query($conn, $sql);
-}
